@@ -1,0 +1,24 @@
+{% extends "library/base.html" %}
+
+{% block content %}
+
+      <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2">{{ book.bookname }}</a><br>
+              <small class="article-content">Author name : {{ book.authorname }}</small>
+              <br>
+              <small class="article-content">Edition : {{ book.edition }}</small><br>
+              {% if user.is_superuser %}
+              <a class="btn btn-outline-info btn-sm mt-1 mb-1" href="{% url 'book-update' book.id %}">Update</a>
+              <a class="btn btn-outline-danger btn-sm mt-1 mb-1" href="{% url 'book-delete' book.id %}">Delete</a>
+              {% endif %}
+              <a class="btn btn-outline-info btn-sm mt-1 mb-1" href="#">Request for Books</a>
+              <br><br>
+              <article>
+                <small>Description : {{ book.description }}</small>
+              </article> 
+            </div>
+          </div>
+        </article>
+{% endblock content %}

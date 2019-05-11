@@ -1,0 +1,33 @@
+{% extends "library/base.html" %}
+
+{% block content %}
+    <div class="media-body">
+      <form class="form-inline" action="/booklist/">
+        <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search">
+        <button class="btn btn-grey" type="submit">Search</button>
+      </form>
+      <br>
+    </div>
+
+    {% for book in books %}
+      <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'book-detail' book.id %}">{{ book.bookname }}</a><br>
+              <small class="article-content">Author name : {{ book.authorname }}</small>
+              <br>
+              <small class="article-content">Edition : {{ book.edition }}</small>
+            </div>
+          </div>
+        </article>
+    {% endfor %}
+    <!-- search box -->
+    <!-- <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Search...">
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div> -->
+{% endblock content %}

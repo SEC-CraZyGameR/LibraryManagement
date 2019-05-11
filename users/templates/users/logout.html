@@ -1,0 +1,14 @@
+{% extends "library/base.html" %}
+{% block content %}
+    <div class="content-section">
+        <h3>
+            You are successfull Logged out.Want to log in again ???
+        </h3>
+
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                <a class="ml-2" href="{% url 'login' %}">Login</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}
